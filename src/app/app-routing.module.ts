@@ -4,9 +4,9 @@ import {ConnexionComponent} from './components/connexion/connexion.component'
 import {ProduitsComponent} from './components/produits/produits.component'
 
 const routes: Routes = [
-  {path: '', component: ConnexionComponent},
-  {path: 'produit', component: ProduitsComponent},
-  {path: '**', redirectTo: ''},
+  {path: 'admin/connexion', component: ConnexionComponent},
+  {path: 'admin/produit', component: ProduitsComponent},
+  {path: '**', redirectTo: 'admin/connexion'},
 
 ];
 
@@ -15,3 +15,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
