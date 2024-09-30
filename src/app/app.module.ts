@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProduitsComponent } from './components/produits/produits.component';
-import { ConnexionComponent } from './components/connexion/connexion.component';
+import { ProductComponent } from './components/product/product.component'; // Import ProductComponent
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProduitsComponent,
-    ConnexionComponent
+    ProductComponent // Declare ProductComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule, // Add HttpClientModule to imports
     AppRoutingModule
   ],
   providers: [],

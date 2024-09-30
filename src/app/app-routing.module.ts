@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ConnexionComponent} from './components/connexion/connexion.component'
-import {ProduitsComponent} from './components/produits/produits.component'
+import { ProductComponent } from './components/product/product.component'; // Import ProductComponent
 
 const routes: Routes = [
-  {path: 'admin/connexion', component: ConnexionComponent},
-  {path: 'admin/produit', component: ProduitsComponent},
-  {path: '**', redirectTo: 'admin/connexion'},
-
+  { path: 'products', component: ProductComponent } // Add route for products
 ];
 
 @NgModule({
