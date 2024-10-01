@@ -25,7 +25,7 @@ export class ProductFormComponent {
       this.productService.addProduct(newProduct).subscribe(response => {
         console.log('Product added:', response);
         this.productForm.reset();
-        this.router.navigate(['/products']);
+        this.router.navigate(['/list_product']);
       });
     }
   }
