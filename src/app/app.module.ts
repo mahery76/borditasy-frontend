@@ -5,8 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsMod
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './components/product/product-list/product.component';
-import { ProductFormComponent } from './components/product/product-form/product-form.component'; // Import ProductFormComponent
+import { ProductComponent } from './components/products/product-list/product.component';
+import { ProductFormComponent } from './components/products/product-form/product-form.component'; // Import ProductFormComponent
 
 @NgModule({
   declarations: [
