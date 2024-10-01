@@ -7,11 +7,16 @@ import { Product } from '../../models/products/product.model';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://127.0.0.1:8000/api/produits/list'; // Replace with your API URL
+  private apiUrlGetProduct = 'http://127.0.0.1:8000/api/produits/list'; // Replace with your API URL
+  private apiUrlAddProduct = 'http://127.0.0.1:8000/api/produits/'; // Replace with your API URL
 
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    return this.http.get<Product[]>(this.apiUrlGetProduct);
   }
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.apiUrlAddProduct, product);
+  }
+ 
 }

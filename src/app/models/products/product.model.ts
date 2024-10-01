@@ -1,5 +1,5 @@
 export interface Product {
-    id: number;
+    id?: number; // Optional for new products
     nom_produit: string;
-    quantite_minimum: string;
-  }
+    quantite_minimum: number;
+}
