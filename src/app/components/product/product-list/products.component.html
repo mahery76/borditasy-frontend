@@ -1,4 +1,4 @@
-<div *ngFor="let product of products">
-    <h2>{{ product.nom_produit }}</h2>
-    <p>{{ product.quantite_minimum }}</p>
-  </div>
+<div *ngFor="let product of products" class="product-card">
+    <h2 class="product-name">{{ product.nom_produit }}</h2>
+    <p class="product-quantity">Minimum Quantity: {{ product.quantite_minimum }}</p>
+</div>

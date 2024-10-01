@@ -1,9 +1,9 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
   <label for="nom_produit">Product Name:</label>
-  <input id="nom_produit" formControlName="nom_produit" required>
+  <input id="nom_produit" formControlName="nom_produit" required class="form-input">
   
   <label for="quantite_minimum">Minimum Quantity:</label>
-  <input id="quantite_minimum" formControlName="quantite_minimum" required>
+  <input id="quantite_minimum" formControlName="quantite_minimum" required class="form-input">
   
-  <button type="submit">Add Product</button>
+  <button type="submit" class="submit-button">Add Product</button>
 </form>
