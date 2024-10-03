@@ -18,6 +18,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ProductComponent } from '../../products/product-list/product.component';
 import { ProductFormComponent } from '../../products/product-form/product-form.component';
+import { StockFormComponent } from 'app/components/stock/stock-form/stock-form.component';
+import { StockListComponent } from 'app/components/stock/stock-list/stock-list.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { ProductFormComponent } from '../../products/product-form/product-form.c
     NotificationsComponent,
     UpgradeComponent,
     ProductComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    StockFormComponent,
+    StockListComponent,
   ]
 })
 

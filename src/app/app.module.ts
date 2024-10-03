@@ -17,11 +17,14 @@ import { SidebarModule } from './components/sidebar/sidebar.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
+import { StockFormComponent } from './components/stock/stock-form/stock-form.component';
+import { StockListComponent } from './components/stock/stock-list/stock-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent 
+    AdminLayoutComponent,
+
   ],
   imports: [
     BrowserModule,
