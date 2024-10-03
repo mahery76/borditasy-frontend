@@ -1,16 +1,40 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ProductComponent } from './components/products/product-list/product.component'; // Import ProductComponent
-import { ProductFormComponent } from './components/products/product-form/product-form.component'; // Import ProductFormComponent
+import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+
+import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 
 const routes: Routes = [
-  { path: 'products', component: ProductComponent },
-  { path: 'add-product', component: ProductFormComponent } // Add route for product form
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  }, {
+    path: '',
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./components/layouts/admin-layout/admin-layout.module').then(x => x.AdminLayoutModule)
+      }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: 'dashboard'
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes, {
+      useHash: false // Change this to false
+    })
+  ],
+  exports: [
+    RouterModule,
+  ],
 })
 export class AppRoutingModule { }
 

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Django/Borditasy-Backend"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
