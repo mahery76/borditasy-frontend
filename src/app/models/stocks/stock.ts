@@ -8,3 +8,5 @@ export interface Stock {
     prix_vente?: number;         // Corresponds to prix_vente, optional
     produit?: Product;           // Corresponds to produit, optional
 }
+
+

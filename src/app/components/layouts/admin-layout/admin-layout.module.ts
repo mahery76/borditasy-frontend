@@ -16,6 +16,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+
 import { ProductComponent } from '../../products/product-list/product.component';
 import { ProductFormComponent } from '../../products/product-form/product-form.component';
 import { StockFormComponent } from 'app/components/stock/stock-form/stock-form.component';
