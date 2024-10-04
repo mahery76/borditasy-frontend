@@ -25,8 +25,10 @@
                 <input id="prix_vente" formControlName="prix_vente" class="form-control" placeholder="Enter prix vente (optional)">
               </div>
               <div class="form-group">
-                <label for="produit">Product ID:</label>
-                <input id="produit" formControlName="produit" required class="form-control" placeholder="Enter product ID">
+                <label for="produit">Product:</label>
+                <select id="produit" formControlName="produit" required class="form-control">
+                  <option *ngFor="let product of products" [value]="product.id">{{ product.nom_produit }}</option>
+                </select>
               </div>
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-info btn-fill">Add Stock</button>
