@@ -24,11 +24,7 @@ export class StockService {
   }
 
   addStock(stock: Stock): Observable<Stock> {
-    const stockToSend = {
-      ...stock,
-      product: stock.produit.id // Send only the product ID
-    };
-    return this.http.post<Stock>(this.apiUrlAddStock, stockToSend);
+    return this.http.post<Stock>(this.apiUrlAddStock, stock);
   }
 
   private getProductById(productId: number): Product {
