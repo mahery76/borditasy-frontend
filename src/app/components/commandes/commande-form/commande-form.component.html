@@ -1,0 +1,47 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="content">
+              <form [formGroup]="commandeForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="produit">Product:</label>
+                    <select id="produit" formControlName="produit" required class="form-control">
+                      <option *ngFor="let product of products" [value]="product.id">{{ product.nom_produit }}</option>
+                    </select>
+                  </div>
+                <div class="form-group">
+                  <label for="quantite">Quantité</label>
+                  <input id="quantite" formControlName="quantite" class="form-control" placeholder="Enter quantity">
+                </div>
+                <button type="button" class="btn btn-info btn-fill" (click)="addCommande()">Ajouter commande</button>
+              </form>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Designation</th>
+                    <th>Quantité</th>
+                    <th>Montant</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of commandes">
+                    <td>{{ products[item.produit-1].nom_produit }}</td>
+                    <td>{{ item.qte_produit }}</td>
+                    <td>{{ item.montant }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="form-group">
+                <label for="argent_recu">Argent recu</label>
+                <input id="argent_recu" formControlName="argent_recu" class="form-control" placeholder="Enter received amount">
+              </div>
+              <p>Argent a rendre: {{ argentARendre }} Ar</p>
+              <button type="submit" class="btn btn-info btn-fill">Payer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
