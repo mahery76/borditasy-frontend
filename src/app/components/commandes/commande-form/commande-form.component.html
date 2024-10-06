@@ -16,29 +16,36 @@
                   <input id="quantite" formControlName="quantite" class="form-control" placeholder="Enter quantity">
                 </div>
                 <button type="button" class="btn btn-info btn-fill" (click)="addCommande()">Ajouter commande</button>
-              </form>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Designation</th>
-                    <th>Quantité</th>
-                    <th>Montant</th>
-                  </tr>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Designation</th>
+                      <th>Quantité</th>
+                      <th>Montant</th>
+                    </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of commandes">
-                    <td>{{ products[item.produit-1].nom_produit }}</td>
+                    <td>{{ item.nom_produit }}</td>
                     <td>{{ item.qte_produit }}</td>
-                    <td>{{ item.montant }}</td>
+                    <td>{{ item.prix_total.toLocaleString('fr-FR') }}</td>
+
                   </tr>
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="2" class="text-right"><strong>Total:</strong></td>
+                    <td>{{ totalMontant.toLocaleString('fr-FR') }} Ar</td> <!-- Display total amount -->
+                  </tr>
+                </tfoot>
               </table>
               <div class="form-group">
                 <label for="argent_recu">Argent recu</label>
                 <input id="argent_recu" formControlName="argent_recu" class="form-control" placeholder="Enter received amount">
               </div>
-              <p>Argent a rendre: {{ argentARendre }} Ar</p>
+              <p>Argent a rendre: {{ argentARendre.toLocaleString('fr-FR') }} Ar</p>
               <button type="submit" class="btn btn-info btn-fill">Payer</button>
+            </form>
             </div>
           </div>
         </div>

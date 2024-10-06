@@ -11,7 +11,7 @@ export class FactureService {
 
   constructor(private http: HttpClient) {}
 
-  addFacture(facture: Facture): Observable<Facture> {
-    return this.http.post<Facture>(this.apiUrl, facture);
+  addFacture(facture: Facture): Observable<any> {
+    return this.http.post<any>(this.apiUrl, {"facture": facture});
   }
 }
