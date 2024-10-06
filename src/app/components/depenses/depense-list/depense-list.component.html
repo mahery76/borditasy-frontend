@@ -4,22 +4,22 @@
         <div class="col-md-12">
           <div class="card">
             <div class="header">
-              <h4 class="title">Stock List</h4>
+              <h4 class="title">Depense List</h4>
             </div>
             <div class="content table-responsive table-full-width">
               <table class="table table-hover table-striped">
                 <thead>
                   <tr>
                     <th>Designation Depense</th>
-                    <th>Quantite Stock</th>
-                    <th>Prix Achat Dep</th>
+                    <th>Quantite Dépense</th>
+                    <th>Montant Dépense</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let depense of depenses">
-                    <td>{{ stock.designation_depense }}</td>
-                    <td>{{ stock.quantite_stock }}</td>
-                    <td>{{ stock.prix_achat_dep }}</td>
+                    <td>{{ depense.designation_depense }}</td>
+                    <td>{{ depense.quantite_stock }}</td>
+                    <td>{{ depense.prix_achat_dep }}</td>
                   </tr>
                 </tbody>
               </table>

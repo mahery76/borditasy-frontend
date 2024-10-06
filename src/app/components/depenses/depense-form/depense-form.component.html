@@ -1,1 +1,54 @@
-<p>depense-form works!</p>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card" id="add_depense_form">
+          <div class="header">
+            <h4 class="title text-center">Add New Depense</h4>
+          </div>
+          <div class="content">
+            <form [formGroup]="depenseForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="designation_depense">Designation Depense:</label>
+                <input
+                  id="designation_depense"
+                  formControlName="designation_depense"
+                  required
+                  class="form-control"
+                  placeholder="Enter designation depense"
+                />
+              </div>
+              <div class="form-group">
+                <label for="quantite_stock">Quantite:</label>
+                <input
+                  id="quantite_stock"
+                  formControlName="quantite_stock"
+                  required
+                  class="form-control"
+                  placeholder="Enter quantite depense"
+                />
+              </div>
+              <div class="form-group">
+                <label for="prix_achat_dep">Montant Dep:</label>
+                <input
+                  id="prix_achat_dep"
+                  formControlName="prix_achat_dep"
+                  required
+                  class="form-control"
+                  placeholder="Enter Montant depense"
+                />
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-info btn-fill">
+                  Add depense
+                </button>
+              </div>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

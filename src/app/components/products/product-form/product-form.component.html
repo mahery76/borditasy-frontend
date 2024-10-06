@@ -1,34 +1,47 @@
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row justify-content-center ">
-
-          <div class="col-md-6 d-flex justify-content-center">
-              <div class="card" id="add_produit_form">
-                  <div class="header">
-                      <h4 class="title text-center">Add New Product</h4>
-                  </div>
-                  <div class="content">
-                      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-                          <div class="form-group">
-                              <label for="nom_produit">Product Name:</label>
-                              <input id="nom_produit" formControlName="nom_produit" required class="form-control" placeholder="Enter product name">
-                          </div>
-                          
-                          <div class="form-group">
-                              <label for="quantite_minimum">Minimum Quantity:</label>
-                              <input id="quantite_minimum" formControlName="quantite_minimum" required class="form-control" placeholder="Enter minimum quantity">
-                          </div>
-
-                          <!-- Center the button -->
-                          <div class="d-flex justify-content-center">
-                              <button type="submit" class="btn btn-info btn-fill">Add Product</button>
-                          </div>
-
-                          <div class="clearfix"></div>
-                      </form>
-                  </div>
-              </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 d-flex justify-content-center">
+        <div class="card" id="add_produit_form">
+          <div class="header">
+            <h4 class="title text-center">Add New Product</h4>
           </div>
+          <div class="content">
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="nom_produit">Product Name:</label>
+                <input
+                  id="nom_produit"
+                  formControlName="nom_produit"
+                  required
+                  class="form-control"
+                  placeholder="Enter product name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="quantite_minimum">Minimum Quantity:</label>
+                <input
+                  id="quantite_minimum"
+                  formControlName="quantite_minimum"
+                  required
+                  class="form-control"
+                  placeholder="Enter minimum quantity"
+                />
+              </div>
+
+              <!-- Center the button -->
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-info btn-fill">
+                  Add Product
+                </button>
+              </div>
+
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 </div>

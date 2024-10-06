@@ -22,6 +22,7 @@ import { ProductFormComponent } from '../../products/product-form/product-form.c
 import { StockFormComponent } from 'app/components/stock/stock-form/stock-form.component';
 import { StockListComponent } from 'app/components/stock/stock-list/stock-list.component';
 import { DepenseListComponent } from 'app/components/depenses/depense-list/depense-list.component';
+import { DepenseFormComponent } from 'app/components/depenses/depense-form/depense-form.component'
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { DepenseListComponent } from 'app/components/depenses/depense-list/depen
     StockFormComponent,
     StockListComponent,
     DepenseListComponent,
+    DepenseFormComponent,
   ]
 })
 

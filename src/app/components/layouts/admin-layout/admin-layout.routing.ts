@@ -13,6 +13,7 @@ import { ProductFormComponent } from '../../products/product-form/product-form.c
 import { StockListComponent } from 'app/components/stock/stock-list/stock-list.component';
 import { StockFormComponent } from 'app/components/stock/stock-form/stock-form.component';
 import { DepenseListComponent } from 'app/components/depenses/depense-list/depense-list.component';
+import { DepenseFormComponent } from 'app/components/depenses/depense-form/depense-form.component'
 
 export const AdminLayoutRoutes: Routes = [
   { path: 'dashboard', component: HomeComponent },
@@ -28,4 +29,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'list_stock', component: StockListComponent },
   { path: 'insert_stock', component: StockFormComponent },
   { path: 'list_depense', component: DepenseListComponent },
+  { path: 'insert_depense', component: DepenseFormComponent},
 ];

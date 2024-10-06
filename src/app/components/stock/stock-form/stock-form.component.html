@@ -9,8 +9,10 @@
           <div class="content">
             <form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
               <div class="form-group">
-                <label for="designation_depense">Designation Depense:</label>
-                <input id="designation_depense" formControlName="designation_depense" required class="form-control" placeholder="Enter designation depense">
+                <label for="produit">Product:</label>
+                <select id="produit" formControlName="produit" required class="form-control">
+                  <option *ngFor="let product of products" [value]="product.id">{{ product.nom_produit }}</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="quantite_stock">Quantite Stock:</label>
@@ -24,12 +26,7 @@
                 <label for="prix_vente">Prix Vente:</label>
                 <input id="prix_vente" formControlName="prix_vente" class="form-control" placeholder="Enter prix vente (optional)">
               </div>
-              <div class="form-group">
-                <label for="produit">Product:</label>
-                <select id="produit" formControlName="produit" required class="form-control">
-                  <option *ngFor="let product of products" [value]="product.id">{{ product.nom_produit }}</option>
-                </select>
-              </div>
+         
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-info btn-fill">Add Stock</button>
               </div>

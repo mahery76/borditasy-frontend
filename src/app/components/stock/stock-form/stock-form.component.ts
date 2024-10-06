@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StockService } from '../../../services/stocks/stock.service';
 import { ProductService } from '../../../services/products/product.service'; // Import ProductService
-import { Stock } from '../../../models/stocks/stock';
 import { Product } from 'app/models/products/product.model';  // Import Product model
 import { Router } from '@angular/router';
 
@@ -22,7 +21,6 @@ export class StockFormComponent implements OnInit {
     private router: Router
   ) {
     this.stockForm = this.fb.group({
-      designation_depense: ['', Validators.required],
       quantite_stock: ['', Validators.required],
       prix_achat_dep: ['', Validators.required],
       prix_vente: [''],
