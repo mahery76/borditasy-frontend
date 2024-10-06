@@ -21,7 +21,6 @@ export class StockFormComponent implements OnInit {
     private router: Router
   ) {
     this.stockForm = this.fb.group({
-      designation_depense: ['', Validators.required],
       quantite_stock: ['', Validators.required],
       prix_achat_dep: ['', Validators.required],
       prix_vente: [''],

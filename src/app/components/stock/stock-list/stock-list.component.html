@@ -19,11 +19,10 @@
               </thead>
               <tbody>
                 <tr *ngFor="let stock of stocks">
-                  <td>{{ stock.designation_depense }}</td>
+                  <td>{{ stock.produit?.nom_produit }}</td>
                   <td>{{ stock.quantite_stock }}</td>
                   <td>{{ stock.prix_achat_dep }}</td>
                   <td>{{ stock.prix_vente }}</td>
-                  <td>{{ stock.produit?.nom_produit }}</td>
                 </tr>
               </tbody>
             </table>

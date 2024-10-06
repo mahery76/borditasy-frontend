@@ -21,7 +21,6 @@ import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-la
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -39,4 +38,8 @@ import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-la
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
+
+
