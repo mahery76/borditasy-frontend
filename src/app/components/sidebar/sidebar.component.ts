@@ -13,14 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/list_product', title: 'List Produit',  icon: 'pe-7s-note2', class: '' },
     { path: '/insert_stock', title: 'Inserer Stock',  icon: 'pe-7s-box2', class: '' },
     { path: '/list_stock', title: 'List Stock',  icon: 'pe-7s-note2', class: '' },
-    { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
-    { path: '/table', title: 'Table List',  icon:'pe-7s-note2', class: '' },
     { path: '/insert_commande', title: 'Nouvelle Commande',  icon:'pe-7s-news-paper', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'pe-7s-bell', class: '' },
-    { path: '/upgrade', title: 'Upgrade to PRO',  icon:'pe-7s-rocket', class: 'active-pro' },
-];
+    ];
 
 @Component({
   selector: 'app-sidebar',

@@ -56,22 +56,18 @@ export class CommandeFormComponent implements OnInit, OnDestroy {
   }
 
   addCommande() {
-    const formValue = this.commandeForm.value;
-    console.log('here is the form_value', formValue)
-    console.log('voici la liste des produits', this.products)
+    const formValue = this.commandeForm.value
     const produit_id= Number(formValue.produit);
     const quantite=formValue.quantite;
     const produit = this.products.find(p => p.id === produit_id); // Find product by ID
     const prix_total = produit.prix_vente * quantite; // Calculate total price if product exists
     const nom_produit = produit.nom_produit; // Get product name if product exists
-    console.log('voici le nom du produit ',nom_produit)
     const commande: Commande = {
       produit: produit_id,
       nom_produit:nom_produit,
       qte_produit: quantite,
       prix_total: prix_total
     };
-    console.log('voici la commande : ', commande)
     this.commandes.push(commande);
     this.calculateTotal(); // Update total when a new commande is added
     this.commandeForm.reset();
@@ -79,14 +75,14 @@ export class CommandeFormComponent implements OnInit, OnDestroy {
 
   calculateTotal() {
     this.totalMontant = this.commandes.reduce((total, item) => {
-      const product = this.products[item.produit - 1]; // Get the product based on ID
+      const product = this.products.find(p => p.id === item.produit); // Find product by ID
       return total + (product ? product.prix_vente * item.qte_produit : 0);
     }, 0);
   }
 
   onSubmit() {
       const facture: Facture = {
-        est_payee: false,
+        est_payee: true,
         commandes: this.commandes
       };
       console.log('here is the facture payload: ',facture)
