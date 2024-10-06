@@ -21,7 +21,7 @@ import { ProductComponent } from '../../products/product-list/product.component'
 import { ProductFormComponent } from '../../products/product-form/product-form.component';
 import { StockFormComponent } from 'app/components/stock/stock-form/stock-form.component';
 import { StockListComponent } from 'app/components/stock/stock-list/stock-list.component';
-
+import { DepenseListComponent } from 'app/components/depenses/depense-list/depense-list.component';
 
 @NgModule({
   imports: [
@@ -45,6 +45,7 @@ import { StockListComponent } from 'app/components/stock/stock-list/stock-list.c
     ProductFormComponent,
     StockFormComponent,
     StockListComponent,
+    DepenseListComponent,
   ]
 })
 

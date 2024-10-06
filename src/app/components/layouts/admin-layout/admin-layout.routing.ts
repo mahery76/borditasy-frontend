@@ -12,19 +12,20 @@ import { ProductComponent } from '../../products/product-list/product.component'
 import { ProductFormComponent } from '../../products/product-form/product-form.component';
 import { StockListComponent } from 'app/components/stock/stock-list/stock-list.component';
 import { StockFormComponent } from 'app/components/stock/stock-form/stock-form.component';
+import { DepenseListComponent } from 'app/components/depenses/depense-list/depense-list.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: HomeComponent },
-    { path: 'user',           component: UserComponent },
-    { path: 'table',          component: TablesComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
-    { path: 'insert_product',        component: ProductFormComponent },
-    { path: 'list_product',        component: ProductComponent },
-    { path: 'list_stock',        component: StockListComponent },
-    { path: 'insert_stock',        component: StockFormComponent },
-   
+  { path: 'dashboard', component: HomeComponent },
+  { path: 'user', component: UserComponent },
+  { path: 'table', component: TablesComponent },
+  { path: 'typography', component: TypographyComponent },
+  { path: 'icons', component: IconsComponent },
+  { path: 'maps', component: MapsComponent },
+  { path: 'notifications', component: NotificationsComponent },
+  { path: 'upgrade', component: UpgradeComponent },
+  { path: 'insert_product', component: ProductFormComponent },
+  { path: 'list_product', component: ProductComponent },
+  { path: 'list_stock', component: StockListComponent },
+  { path: 'insert_stock', component: StockFormComponent },
+  { path: 'list_depense', component: DepenseListComponent },
 ];

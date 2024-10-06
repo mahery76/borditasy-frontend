@@ -16,12 +16,10 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -39,4 +37,8 @@ import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-la
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
+
+
