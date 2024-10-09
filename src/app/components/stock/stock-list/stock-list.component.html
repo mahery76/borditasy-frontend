@@ -10,9 +10,8 @@
             <table class="table table-hover table-striped">
               <thead>
                 <tr>
-                  <th>Product Name</th>
-                  <th>Quantite Stock</th>
-                  <th>Prix Achat Dep</th>
+                  <th>Nom du produit</th>
+                  <th>Quantité restante</th>
                   <th>Prix Vente</th>
                 </tr>
               </thead>
@@ -20,7 +19,6 @@
                 <tr *ngFor="let stock of stocks">
                   <td>{{ stock.produit?.nom_produit }}</td>
                   <td>{{ stock.quantite_stock }}</td>
-                  <td>{{ stock.prix_achat_dep }}</td>
                   <td>{{ stock.prix_vente }}</td>
                 </tr>
               </tbody>
