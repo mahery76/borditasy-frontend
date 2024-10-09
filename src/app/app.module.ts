@@ -15,12 +15,14 @@ import { SidebarModule } from './components/sidebar/sidebar.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
+import { AuthenticationFormComponent } from './components/authentications/authentication-form/authentication-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    AuthenticationFormComponent,
   ],
   imports: [
     BrowserModule,

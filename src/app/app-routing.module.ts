@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
-
+import { AuthenticationFormComponent } from './components/authentications/authentication-form/authentication-form.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  }, {
+    component: AuthenticationFormComponent,
+  }, 
+  {
     path: '',
     component: AdminLayoutComponent,
     children: [
