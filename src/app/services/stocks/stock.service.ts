@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { Stock } from '../../models/stocks/stock';
 import { Product } from '../../models/products/product.model';
 import { map } from 'rxjs/operators';

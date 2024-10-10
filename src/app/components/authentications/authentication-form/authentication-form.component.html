@@ -7,23 +7,22 @@
               <h4 class="title text-center">Se connecter</h4>
             </div>
             <div class="content">
-              <!-- <form [formGroup]="depenseForm" (ngSubmit)="onSubmit()"> -->
-              <form>
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                  <label for="email">Email</label>
+                  <label for="email">Nom d'utilisateur</label>
                   <input
-                    id="mail_user"
-                    formControlName="mail_user"
+                    id="username"
+                    formControlName="username"
                     required
                     class="form-control"
-                    placeholder="Entrer votre email"
+                    placeholder="Nom d'utilisateur"
                   />
                 </div>
                 <div class="form-group">
-                  <label for="quantite_stock">Mot de passe</label>
+                  <label for="password">Mot de passe</label>
                   <input
-                    id="password_user"
-                    formControlName="password_user"
+                    id="password"
+                    formControlName="password"
                     required
                     class="form-control"
                     placeholder="Entrer votre mot de passe"
