@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../../services/users/user.service';
-import { Router } from '@angular/router'; // Import Router
+import { AuthService } from '../../../services/authentications/authentication.service';
+import { Router } from '@angular/router'; 
 import { User } from 'app/models/users/user.model';
 
 @Component({
@@ -33,6 +33,7 @@ export class AuthenticationFormComponent implements OnInit {
           this.authService.setLoggedInUser(response);
           alert('mila redirigena eto fa mety ny connexion');
           console.log(response);
+          this.router.navigate(['/dashboard']);
         },
         error: (error) => {
           console.error(error);
