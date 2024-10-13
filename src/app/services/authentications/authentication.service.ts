@@ -7,6 +7,7 @@ import { User } from '../../models/users/user.model'
 })
 export class AuthService {
 
+    
   private apiUrlGetUserToken = 'http://localhost:8000/api-user-login/';
 
   constructor(private http: HttpClient) { }
@@ -20,6 +21,7 @@ export class AuthService {
   }
 
   getLoggedInUser(): any {
+    console.log(JSON.parse(localStorage.getItem('userData') || '{}'))
     return JSON.parse(localStorage.getItem('userData') || '{}');
   }
 

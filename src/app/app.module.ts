@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +16,8 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { AuthenticationFormComponent } from './components/authentications/authentication-form/authentication-form.component';
 
+import {AuthInterceptor} from "./utils/authInterceptor"
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { AuthenticationFormComponent } from './components/authentications/authen
     SidebarModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 

@@ -31,7 +31,6 @@ export class AuthenticationFormComponent implements OnInit {
       this.authService.login(credentials).subscribe({
         next: (response) => {
           this.authService.setLoggedInUser(response);
-          alert('mila redirigena eto fa mety ny connexion');
           console.log(response);
           this.router.navigate(['/dashboard']);
         },
