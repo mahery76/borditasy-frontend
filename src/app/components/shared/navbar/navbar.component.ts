@@ -1,7 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
-
+import { AuthService } from '../../../services/authentications/authentication.service';
+import { Router } from '@angular/router'; 
 @Component({
     // moduleId: module.id,
     selector: 'navbar-cmp',
@@ -14,7 +15,12 @@ export class NavbarComponent implements OnInit{
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location,  private element: ElementRef) {
+    constructor(
+        location: Location,  
+        private element: ElementRef,
+        private authService: AuthService,
+        private router: Router
+    ) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -63,4 +69,10 @@ export class NavbarComponent implements OnInit{
       }
       return 'Dashboard';
     }
+    
+    onLogout(){
+        this.authService.logout()
+        this.router.navigate(['/'])
+    }
+
 }

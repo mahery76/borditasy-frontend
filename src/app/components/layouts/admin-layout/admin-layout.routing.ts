@@ -21,3 +21,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'insert_stock', component: StockFormComponent, canActivate: [AuthGuard] },
     { path: 'insert_commande', component: CommandeFormComponent, canActivate: [AuthGuard] },
 ];
+
+

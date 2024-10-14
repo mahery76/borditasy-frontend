@@ -36,7 +36,7 @@ export class AuthenticationFormComponent implements OnInit {
         },
         error: (error) => {
           console.error(error);
-          alert('connection error');
+          alert('mot de passe ou nom incorrecte');
           // show error message
         },
       });
