@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit{
     location: Location;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    username: string | null = '';
 
     constructor(
         location: Location,  
@@ -29,6 +30,13 @@ export class NavbarComponent implements OnInit{
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
+
+      // Retrieve the user info from localStorage
+      const storedUser = localStorage.getItem('userData');
+      if (storedUser) {
+          const user = JSON.parse(storedUser);
+          this.username = user.username;  // Store the username
+      }
     }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
