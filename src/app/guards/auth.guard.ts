@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
     | UrlTree {
 
 
-    if (!this.authService.isAuthenticated()) {
+    if (!this.authService.getUserInfo()) {
       console.log('io fa tsy logged in');
       this.router.navigate(['/']); // Redirect to login or home page
       return false
@@ -33,7 +33,5 @@ export class AuthGuard implements CanActivate {
       console.log('io fa logged in ');
       return true
     }
-
-    
   }
 }

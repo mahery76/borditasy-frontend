@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable, of } from "rxjs";
-import { User } from '../../models/users/user.model'
+import { User, VerifyTokenResponse } from '../../models/users/user.model'
 import { map, catchError } from 'rxjs/operators';
 import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   isLoggedIn: boolean;
@@ -15,11 +16,7 @@ export class AuthService {
   private apiUrlVerifyToken = 'http://localhost:8000/api-verify-token/';
   // this is the interface to get from the 
 
-  displayTest(item: string){
-    console.log(item)
-  }
-
-  constructor(private http: HttpClient) { }
+ constructor(private http: HttpClient) { }
 
   login(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrlGetUserToken, user, {
@@ -31,19 +28,14 @@ export class AuthService {
     localStorage.setItem('userData', JSON.stringify(userData));
   }
 
-  isAuthenticated(): Observable<boolean> {
-    const response = this.http.get<any>(this.apiUrlVerifyToken)
-    response.subscribe({
-      next: (response) => {
-        this.isLoggedIn = response.valid;
-      },
-      error: (error) => {
+  // not needed for now
+  getUserInfo(): Observable<VerifyTokenResponse> {
+    return this.http.get<VerifyTokenResponse>(this.apiUrlVerifyToken).pipe(
+      catchError((error) => {
         console.error('error fetching', error);
-        this.isLoggedIn = false
-      },
-    })
-    console.log('ito ilay isLoggedIn', this.isLoggedIn)
-    return of(this.isLoggedIn)
+        return of({ valid: false, user_id: 0, username: '', is_superuser: false }); // Return a default value on error
+      })
+    );
   }
 
   logout(): void {
