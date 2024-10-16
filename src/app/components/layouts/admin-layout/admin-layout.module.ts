@@ -17,6 +17,7 @@ import { StockListComponent } from 'app/components/stock/stock-list/stock-list.c
 import { DepenseListComponent } from 'app/components/depenses/depense-list/depense-list.component';
 import { DepenseFormComponent } from 'app/components/depenses/depense-form/depense-form.component'
 import { CommandeFormComponent } from 'app/components/commandes/commande-form/commande-form.component';
+import { StatistiqueComponent } from 'app/components/statistique/statistique/statistique.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { CommandeFormComponent } from 'app/components/commandes/commande-form/co
     DepenseListComponent,
     DepenseFormComponent,
     CommandeFormComponent,
-  ],
+    StatistiqueComponent
+  ]
 })
 
 export class AdminLayoutModule {}

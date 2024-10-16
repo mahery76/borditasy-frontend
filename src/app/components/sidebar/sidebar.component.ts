@@ -44,12 +44,8 @@ export const ADMINROUTES: RouteInfo[] = [
     class: '',
   },
 
-  {
-    path: '/insert_commande',
-    title: 'Nouvelle Commande',
-    icon: 'pe-7s-news-paper',
-    class: '',
-  },
+    { path: '/insert_commande', title: 'Nouvelle Commande',  icon:'pe-7s-news-paper', class: '' },
+    { path: '/statistique', title: 'Voir Statistique',  icon:'pe-7s-news-paper', class: '' },
 ];
 
 export const WAITERROUTES: RouteInfo[] = [

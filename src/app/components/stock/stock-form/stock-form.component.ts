@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StockService } from '../../../services/stocks/stock.service';
-import { ProductService } from '../../../services/products/product.service'; // Import ProductService
-import { Product } from 'app/models/products/product.model';  // Import Product model
-import { Router } from '@angular/router';
+import { ProductService } from '../../../services/products/product.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Product } from 'app/models/products/product.model';
 
 @Component({
   selector: 'app-stock-form',
@@ -12,13 +12,14 @@ import { Router } from '@angular/router';
 })
 export class StockFormComponent implements OnInit {
   stockForm: FormGroup;
-  products: Product[] = []; // Add products array
+  products: Product[] = [];
 
   constructor(
     private fb: FormBuilder,
     private stockService: StockService,
-    private productService: ProductService, // Inject ProductService
-    private router: Router
+    private productService: ProductService,
+    private router: Router,
+    private route: ActivatedRoute // Inject ActivatedRoute
   ) {
     this.stockForm = this.fb.group({
       quantite_stock: ['', Validators.required],
@@ -29,7 +30,16 @@ export class StockFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadProducts(); // Load products on init
+    this.loadProducts();
+    this.route.queryParams.subscribe(params => {
+      if (params['produit']) {
+        this.stockForm.patchValue({
+          produit: params['produit'],
+          prix_achat_dep: params['prix_achat'],
+          prix_vente: params['prix_vente']
+        });
+      }
+    });
   }
 
   loadProducts(): void {
@@ -41,13 +51,6 @@ export class StockFormComponent implements OnInit {
   onSubmit() {
     if (this.stockForm.valid) {
       const formValue = this.stockForm.value;
-      // const selectedProduct = {} as Product;
-      // selectedProduct.id= formValue.produit;
-      // const newStock: Stock = {
-      //   ...formValue,
-      //   produit: selectedProduct // Assign the entire Product object
-      // };
-      console.log('Stock to be added:', formValue);
       this.stockService.addStock(formValue).subscribe(response => {
         console.log('Stock added:', response);
         this.stockForm.reset();
