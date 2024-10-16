@@ -22,6 +22,7 @@
                   <label for="password">Mot de passe</label>
                   <input
                     id="password"
+                    type="password"
                     formControlName="password"
                     required
                     class="form-control"
@@ -29,12 +30,19 @@
                   />
                 </div>
              
-  
-                <div class="d-flex justify-content-center">
+                <div *ngIf="loading" class="text-center">
+                  <div class="spinner-grow text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <p class="mt-2">Authenticating...</p>
+                </div>
+
+                <div class="d-flex justify-content-center" *ngIf="!loading">
                   <button type="submit" class="btn btn-info btn-fill">
                     Se connecter 
                   </button>
                 </div>
+
                 <div class="clearfix"></div>
               </form>
             </div>

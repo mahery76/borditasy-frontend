@@ -11,7 +11,7 @@ import { User } from 'app/models/users/user.model';
 })
 export class AuthenticationFormComponent implements OnInit {
   loginForm: FormGroup;
-
+  loading = false;
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -27,6 +27,7 @@ export class AuthenticationFormComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
+      this.loading = true;
       const credentials: User = this.loginForm.value;
       this.authService.login(credentials).subscribe({
         next: (response) => {
@@ -39,6 +40,9 @@ export class AuthenticationFormComponent implements OnInit {
           alert('mot de passe ou nom incorrecte');
           // show error message
         },
+        complete: () => {
+          this.loading = false;
+        }
       });
     }
   }
