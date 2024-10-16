@@ -46,7 +46,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#">
-                        Account
+                        {{ username }}
                     </a>
                 </li>
                 <li class="dropdown">
@@ -67,7 +67,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" (click)="onLogout()">
                         Log out
                     </a>
                 </li>

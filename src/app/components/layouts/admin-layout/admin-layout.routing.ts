@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 import { HomeComponent } from '../../home/home.component';
 import { ProductComponent } from '../../products/product-list/product.component';
 import { ProductFormComponent } from '../../products/product-form/product-form.component';
@@ -11,14 +10,9 @@ import { DepenseFormComponent } from 'app/components/depenses/depense-form/depen
 import { CommandeFormComponent } from 'app/components/commandes/commande-form/commande-form.component';
 import { StatistiqueComponent } from 'app/components/statistique/statistique/statistique.component';
 
-
-
-
-
-
 export const AdminLayoutRoutes: Routes = [
     { path: 'list_depense', component: DepenseListComponent },
-  { path: 'insert_depense', component: DepenseFormComponent},
+    { path: 'insert_depense', component: DepenseFormComponent},
     { path: 'dashboard',      component: HomeComponent },
     { path: 'insert_product',        component: ProductFormComponent },
     { path: 'list_product',        component: ProductComponent },
@@ -26,5 +20,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'insert_stock',        component: StockFormComponent },
     { path: 'insert_commande',        component:     CommandeFormComponent },
     { path: 'statistique',        component:     StatistiqueComponent },
-
 ];
+
