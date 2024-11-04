@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
-import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
-import * as Chartist from 'chartist';
+import { ProductService } from 'app/services/products/product.service';
+import { StatistiqueService } from 'app/services/statistique/statistique.service';
+import { StatistiqueDashboard } from 'app/models/statistique/statistique-dashboard'; // Import the new model
+import { ChartType,LegendItem } from '../lbd/lbd-chart/lbd-chart.component';
+
 
 @Component({
   selector: 'app-home',
@@ -9,121 +11,46 @@ import * as Chartist from 'chartist';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    public emailChartType: ChartType;
-    public emailChartData: any;
-    public emailChartLegendItems: LegendItem[];
+  public products: any[] = [];
+  public selectedProduct: number;
+  public selectedProductName: string;
+  public selectedYear: number;
+  public years: number[] = [];
+  public chartData: any;
+  public chartType: ChartType = ChartType.Line; // Change to your desired chart type
+  public legendItems: LegendItem[] = [{ title: 'Quantity Sold', imageClass: 'fa fa-circle text-info' }];
 
-    public hoursChartType: ChartType;
-    public hoursChartData: any;
-    public hoursChartOptions: any;
-    public hoursChartResponsive: any[];
-    public hoursChartLegendItems: LegendItem[];
-
-    public activityChartType: ChartType;
-    public activityChartData: any;
-    public activityChartOptions: any;
-    public activityChartResponsive: any[];
-    public activityChartLegendItems: LegendItem[];
-  constructor() { 
-        // Initialize chart properties with default values
-        this.emailChartType = ChartType.Pie;
-        this.emailChartData = { labels: [], series: [] };
-        this.emailChartLegendItems = [];
-
-        this.hoursChartType = ChartType.Line;
-        this.hoursChartData = { labels: [], series: [] };
-        this.hoursChartOptions = {};
-        this.hoursChartResponsive = [];
-        this.hoursChartLegendItems = [];
-
-        this.activityChartType = ChartType.Bar;
-        this.activityChartData = { labels: [], series: [] };
-        this.activityChartOptions = {};
-        this.activityChartResponsive = [];
-        this.activityChartLegendItems = [];
+  constructor(private productService: ProductService, private statistiqueService: StatistiqueService) {
+    this.selectedYear = new Date().getFullYear(); // Default to current year
+    this.years = Array.from({ length: 5 }, (_, i) => this.selectedYear - i); // Last 5 years
   }
 
-  ngOnInit() {
-      this.emailChartType = ChartType.Pie;
-      this.emailChartData = {
-        labels: ['62%', '32%', '6%'],
-        series: [62, 32, 6]
-      };
-      this.emailChartLegendItems = [
-        { title: 'Open', imageClass: 'fa fa-circle text-info' },
-        { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
-        { title: 'Unsubscribe', imageClass: 'fa fa-circle text-warning' }
-      ];
+  ngOnInit(): void {
+    this.loadProducts();
+  }
 
-      this.hoursChartType = ChartType.Line;
-      this.hoursChartData = {
-        labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
-        series: [
-          [287, 385, 490, 492, 554, 586, 698, 695, 752, 788, 846, 944],
-          [67, 152, 143, 240, 287, 335, 435, 437, 539, 542, 544, 647],
-          [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
-        ]
-      };
-      this.hoursChartOptions = {
-        low: 0,
-        high: 800,
-        showArea: true,
-        height: '245px',
-        axisX: {
-          showGrid: false,
-        },
-        lineSmooth: Chartist.Interpolation.simple({
-          divisor: 3
-        }),
-        showLine: false,
-        showPoint: false,
-      };
-      this.hoursChartResponsive = [
-        ['screen and (max-width: 640px)', {
-          axisX: {
-            labelInterpolationFnc: function (value: any ) {
-              return value[0];
-            }
-          }
-        }]
-      ];
-      this.hoursChartLegendItems = [
-        { title: 'Open', imageClass: 'fa fa-circle text-info' },
-        { title: 'Click', imageClass: 'fa fa-circle text-danger' },
-        { title: 'Click Second Time', imageClass: 'fa fa-circle text-warning' }
-      ];
+  loadProducts(): void {
+    this.productService.getProducts().subscribe(data => {
+      this.products = data;
+      if (this.products.length > 0) {
+        this.selectedProduct = this.products[0].id; // Default to the first product
+        this.selectedProductName = this.products[0].nom_produit; // Set the default product name
+      }
+    });
+  }
 
-      this.activityChartType = ChartType.Bar;
-      this.activityChartData = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
-          [412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
-        ]
-      };
-      this.activityChartOptions = {
-        seriesBarDistance: 10,
-        axisX: {
-          showGrid: false
-        },
-        height: '245px'
-      };
-      this.activityChartResponsive = [
-        ['screen and (max-width: 640px)', {
-          seriesBarDistance: 5,
-          axisX: {
-            labelInterpolationFnc: function (value:any) {
-              return value[0];
-            }
-          }
-        }]
-      ];
-      this.activityChartLegendItems = [
-        { title: 'Tesla Model S', imageClass: 'fa fa-circle text-info' },
-        { title: 'BMW 5 Series', imageClass: 'fa fa-circle text-danger' }
-      ];
+  onSubmit(): void {
+    // Find the selected product name based on the selected product ID
+    const selectedProduct = this.products.find(product => product.id == this.selectedProduct);
+    this.selectedProductName = selectedProduct ? selectedProduct.nom_produit : ''; // Set the selected product name
 
-
-    }
-
+    this.statistiqueService.getStatisticsDashboard(this.selectedProduct, this.selectedYear).subscribe((data: StatistiqueDashboard) => {
+        // Recreate chartData as a new object
+        this.chartData = {
+            labels: data.months,
+            series: [data.quantities]
+        };
+        console.log('here is the chart : ', this.chartData);
+    });
+}
 }

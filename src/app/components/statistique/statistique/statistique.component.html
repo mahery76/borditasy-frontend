@@ -1,12 +1,15 @@
 <div class="main-content py-4">
     <div class="container">
-      <form [formGroup]="statistiqueForm" (ngSubmit)="onSubmit()" class="bg-light p-4 rounded shadow-sm">
+      <button (click)="toggleSearchInputs()" class="btn btn-secondary mb-3">
+        {{ isSearchExpanded ? 'Réduire' : 'Afficher' }} les options de recherche
+      </button>
+
+      <form [formGroup]="statistiqueForm" (ngSubmit)="onSubmit()" class="bg-light p-4 rounded shadow-sm" *ngIf="isSearchExpanded">
         <div class="form-group">
           <label class="font-weight-bold">Sélectionnez l'option de date:</label>
           <div class="d-flex justify-content-start mb-3">
             <div *ngFor="let option of dateOptions" class="mr-4">
-              <input type="radio" [value]="option" (change)="onDateOptionChange(option)" name="dateOption" [checked]="option === selectedOption" class="mr-2">
-              <label>{{ option }}</label>
+<input type="radio" [value]="option" (change)="onDateOptionChange(option)" formControlName="dateOption" name="dateOption" [checked]="option === selectedOption" class="mr-2">              <label>{{ option }}</label>
             </div>
           </div>
         </div>
@@ -26,7 +29,7 @@
   
           <label for="year" class="font-weight-bold">Année:</label>
           <select id="year" formControlName="year" class="form-control" required>
-            <option *ngFor="let year of [2020, 2021, 2022, 2023, 2024]" [value]="year">{{ year }}</option>
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
           </select>
         </div>
   
@@ -34,7 +37,7 @@
         <div class="form-group" *ngIf="selectedOption === 'Année'">
           <label for="year" class="font-weight-bold">Année:</label>
           <select id="year" formControlName="year" class="form-control" required>
-            <option *ngFor="let year of [2020, 2021, 2022, 2023, 2024]" [value]="year">{{ year }}</option>
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
           </select>
         </div>
   
@@ -58,7 +61,7 @@
           </select>
           <label for="endYear">Année de fin:</label>
           <select id="endYear" formControlName="endYear" class="form-control" required>
-            <option *ngFor="let year of [2020, 2021, 2022, 2023, 2024]" [value]="year">{{ year }}</option>
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
           </select>
         </div>
   
@@ -66,13 +69,16 @@
         <div class="form-group" *ngIf="isBetweenChecked && selectedOption === 'Année'">
           <label for="endYear">Année de fin:</label>
           <select id="endYear" formControlName="endYear" class="form-control" required>
-            <option *ngFor="let year of [2020, 2021, 2022, 2023, 2024]" [value]="year">{{ year }}</option>
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
           </select>
         </div>
   
         <button type="submit" class="btn btn-info">Obtenir les statistiques</button>
       </form>
   
+      <!-- Affichage des paramètres de recherche -->
+      <h3>{{ searchParameters }}</h3>
+
       <!-- Tableau des statistiques -->
       <table class="table mt-4" *ngIf="statistiques.length > 0">
         <thead>
@@ -89,6 +95,12 @@
             <td>{{ stat.total_profit.toLocaleString('fr-FR') }} Ar</td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2" class="font-weight-bold">Total Bénéfice:</td>
+            <td class="font-weight-bold">{{ totalProfit.toLocaleString('fr-FR') }} Ar</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   </div>
